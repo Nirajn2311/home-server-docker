@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "package-rules": [
+    {
+      "paths": ["nextcloud/**"],
+      "datasources": ["docker"],
+      "enabled": false
+    },
   ]
 }
