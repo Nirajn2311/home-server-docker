@@ -1,0 +1,13 @@
+version: "3"
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    ports:
+      - "13378:80"
+    volumes:
+      - ${DATA_DIR}:/audiobooks
+      - ./config:/config
+      - ./metadata:/metadata
+    labels:
+      - com.centurylinklabs.watchtower.enable=true

@@ -1,0 +1,19 @@
+version: "3"
+services:
+  plex:
+    image: plexinc/pms-docker
+    container_name: plex
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "32400:32400/tcp"
+      - "32410:32410/udp"
+      - "32412:32412/udp"
+      - "32413:32413/udp"
+      - "32414:32414/udp"
+    volumes:
+      - ./config:/config
+      - ./transcode:/transcode
+      - ${PLEX_MEDIA_DIR}:/data/media
+    labels:
+      - com.centurylinklabs.watchtower.enable=true

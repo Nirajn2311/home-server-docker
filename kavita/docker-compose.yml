@@ -1,0 +1,16 @@
+version: "3"
+services:
+  kavita:
+    image: kizaing/kavita:latest
+    container_name: kavita
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "5000:5000"
+    volumes:
+      - ${BASE_DATA_DIR}/Mangas:/manga
+      - ${BASE_DATA_DIR}/Comics:/comics
+      - ${BASE_DATA_DIR}/Books:/books
+      - ./config:/kavita/config
+    labels:
+      - com.centurylinklabs.watchtower.enable=true

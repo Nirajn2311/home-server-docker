@@ -1,0 +1,35 @@
+version: "3"
+services:
+  web_recipes:
+    image: vabene1111/recipes
+    container_name: tandoor
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    volumes:
+      - staticfiles:/opt/recipes/staticfiles
+      - nginx_config:/opt/recipes/nginx/conf.d
+      - ./mediafiles:/opt/recipes/mediafiles
+      - ./db.sqlite3:/opt/recipes/db.sqlite3
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+  nginx_recipes:
+    image: nginx:mainline-alpine
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports:
+      - "7000:80"
+    volumes:
+      - nginx_config:/etc/nginx/conf.d:ro
+      - staticfiles:/static:ro
+      - ./mediafiles:/media:ro
+    depends_on:
+      - web_recipes
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+volumes:
+  nginx_config:
+  staticfiles:
