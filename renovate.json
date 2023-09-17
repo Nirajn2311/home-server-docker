@@ -8,6 +8,6 @@
       "paths": ["nextcloud/**"],
       "datasources": ["docker"],
       "enabled": false
-    },
+    }
   ]
 }
