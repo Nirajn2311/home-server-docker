@@ -3,6 +3,7 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
+    restart: unless-stopped
     env_file: .env
     environment:
       - TZ=Asia/Dubai
