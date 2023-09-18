@@ -11,7 +11,7 @@
 version: "3"
 services:
   qbittorrent:
-    image: linuxserver/qbittorrent:amd64-4.5.5@sha256:c54030fbf3c719f5ab0fcbdab486a19a74e30ceee8f31417db077f08fa4fb54c
+    image: linuxserver/qbittorrent:amd64-20.04.1@sha256:9e812e7ec0fe6c752a845a9a41f8964a5b0a194b6f7c67a67e4171aac04d475c
     container_name: qbittorrent
     restart: unless-stopped
     env_file: .env
