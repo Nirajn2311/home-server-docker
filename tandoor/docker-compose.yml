@@ -1,7 +1,7 @@
 version: "3"
 services:
   web_recipes:
-    image: vabene1111/recipes:1.5.6
+    image: vabene1111/recipes:1.5.6@sha256:5c9a304e42aac1f02ac1387f7183473eeeabc091635524587d158f78c8426f68
     container_name: tandoor
     restart: unless-stopped
     env_file:
@@ -15,7 +15,7 @@ services:
       - com.centurylinklabs.watchtower.enable=true
 
   nginx_recipes:
-    image: nginx:1.25.2-alpine
+    image: nginx:1.25.2-alpine@sha256:16164a43b5faec40adb521e98272edc528e74f31c1352719132b8f7e53418d70
     restart: unless-stopped
     env_file:
       - ./.env
