@@ -36,7 +36,7 @@ services:
       - ./flaresolverr-config:/config
 
   prowlarr:
-    image: ghcr.io/hotio/prowlarr:release-1.12.2.4211@sha256:813cbedf97ef437b66fba316bf6fc85f573fe8e880d63c36b6fbded1d466b6d8
+    image: ghcr.io/hotio/prowlarr:release-1.12.2.4211@sha256:7edb44435c8ed9451339c6696e62a40c9d0eb28284ed2bf46e4f4fc5f502c70c
     container_name: prowlarr
     restart: unless-stopped
     logging:
