@@ -50,7 +50,7 @@ services:
       - flaresolverr
 
   radarr:
-    image: ghcr.io/hotio/radarr:release-5.2.6.8376@sha256:2f57ffb8ee0150037565b1163828032588f758d20c6801ae7c6d859c92c67dff
+    image: ghcr.io/hotio/radarr:release-5.2.6.8376@sha256:69504ec278683219a7515b78627c625f00abdedde649f0631f3c200cd9dac933
     container_name: radarr
     restart: unless-stopped
     logging:
