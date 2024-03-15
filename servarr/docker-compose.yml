@@ -84,7 +84,7 @@ services:
       - prowlarr
 
   bazarr:
-    image: ghcr.io/hotio/bazarr:release-1.4.0@sha256:7dc38916b51dd17987ac1b81d8b8cc5ff91931badf4b62c11d4c8b7a592e7871
+    image: ghcr.io/hotio/bazarr:release-1.4.2@sha256:07e5daa5fd5d8940c7652e651e6680b4a33994f645be59a30ad83eeabcc7d3fc
     container_name: bazarr
     restart: unless-stopped
     logging:
