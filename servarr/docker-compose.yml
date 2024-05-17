@@ -67,7 +67,7 @@ services:
       - prowlarr
 
   sonarr:
-    image: ghcr.io/hotio/sonarr:release-4.0.4.1491@sha256:a4ea0d1ffb4389265bc694a74e874c2dac2ade53bbe654d2019730496eb6afe6
+    image: ghcr.io/hotio/sonarr:release-4.0.4.1491@sha256:46f131506a1fc5d67332ca234fd4aec529171f41d4034064ec795bb6a5a11c21
     container_name: sonarr
     restart: unless-stopped
     logging:
