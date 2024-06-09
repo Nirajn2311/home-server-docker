@@ -1,0 +1,14 @@
+version: "3"
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle
+    environment:
+      - DOZZLE_AUTH_PROVIDER=simple
+    ports:
+      - "14000:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/data
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
