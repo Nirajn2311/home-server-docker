@@ -1,7 +1,7 @@
 version: "3"
 services:
   plex:
-    image: plexinc/pms-docker:1.32.6.7468-07e0d4a7e@sha256:2d9354166e53a316a42e751c68623a7b97a1eecb8f7eb2b644515d1fda899cfe
+    image: plexinc/pms-docker:1.41.3.9314-a0bfb8370
     container_name: plex
     restart: unless-stopped
     env_file: .env
