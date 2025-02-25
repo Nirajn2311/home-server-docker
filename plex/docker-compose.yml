@@ -1,5 +1,18 @@
 version: "3"
 services:
+  plex-media-healthcheck:
+    image: node:22-alpine
+    container_name: plex-media-healthcheck
+    volumes:
+      - plex-media:/data:ro
+    command: sh -c 'until [ "$(ls -A /data)" ]; do echo "Waiting for volume to be ready"; sleep 2; done; echo "Volume ready for use"; sleep infinity;'
+    healthcheck:
+      test: ls /data || exit 1
+      interval: 1m
+      timeout: 15s
+      retries: 3
+      start_period: 15s
+
   plex:
     image: plexinc/pms-docker:1.41.3.9314-a0bfb8370
     container_name: plex
@@ -14,6 +27,19 @@ services:
     volumes:
       - ./config:/config
       - ./transcode:/transcode
-      - ${PLEX_MEDIA_DIR}:/data/media
+      - plex-media:/data/media:ro
+    depends_on:
+      plex-media-healthcheck:
+        condition: service_healthy
     labels:
       - com.centurylinklabs.watchtower.enable=true
+
+volumes:
+  plex-media:
+    driver: rclone
+    driver_opts:
+      remote: ${RCLONE_REMOTE}
+      read_only: "true"
+      allow_other: "true"
+      dir_cache_time: "1m"
+      poll_interval: 0
