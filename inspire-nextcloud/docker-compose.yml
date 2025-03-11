@@ -1,0 +1,45 @@
+services:
+  collabora:
+    image: collabora/code:24.04.13.3.1
+    # image: collabora/code:25.04.4.1.1
+    container_name: collabora
+    ports:
+      - "16500:9980"
+    environment:
+      - aliasgroup1=https://${INSPIRE_DOMAIN}:443,http://nextcloud-aio-apache:16000
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=true --o:mount_jail_tree=false --o:net.post_allow.host[0]=.+ --o:net.frame_ancestors=${INSPIRE_DOMAIN} --o:logging.level=debug --o:logging.level_startup=debug
+      - server_name=${COLLABORA_DOMAIN}
+      - username=${COLLABORA_ADMIN_USER}
+      - password=${COLLABORA_ADMIN_PASSWORD}
+    restart: unless-stopped
+    security_opt:
+      - seccomp:${BASE_DIR}/cool-seccomp-profile.json
+    networks:
+      - nextcloud-aio
+
+  inspire-nextcloud-aio:
+    image: ghcr.io/nextcloud-releases/all-in-one:latest
+    container_name: nextcloud-aio-mastercontainer
+    restart: always
+    environment:
+      - APACHE_PORT=16000
+      - APACHE_IP_BINDING=0.0.0.0
+      - SKIP_DOMAIN_VALIDATION=true
+      - NEXTCLOUD_ADDITIONAL_APKS=imagemagick ffmpeg
+      - NEXTCLOUD_ADDITIONAL_PHP_EXTENSIONS=imagick
+      - NEXTCLOUD_KEEP_DISABLED_APPS=true
+      - NEXTCLOUD_DATADIR=${BASE_DIR}/data
+      - WATCHTOWER_DOCKER_SOCKET_PATH=$XDG_RUNTIME_DIR/docker.sock
+    ports:
+      - "17000:8080"
+    volumes:
+      - inspire_nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - $XDG_RUNTIME_DIR/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  inspire_nextcloud_aio_mastercontainer:
+    name: nextcloud_aio_mastercontainer
+
+networks:
+  nextcloud-aio:
+    name: nextcloud-aio
