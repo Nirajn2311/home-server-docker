@@ -1,7 +1,6 @@
-version: "3"
 services:
   kavita:
-    image: jvmilazz0/kavita:0.7.14@sha256:bcc5350c5f1ec4c6bcc6c35d7ce2523b6af74704e2fa0691ce98e478a4d76aba
+    image: jvmilazz0/kavita:0.8.5
     container_name: kavita
     restart: unless-stopped
     env_file: .env
