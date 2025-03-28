@@ -1,7 +1,7 @@
 version: "3"
 services:
   audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:2.8.1@sha256:c367c39906dc8a470e5ffa97b95dcfac962da3f328f4ff51dc1d677690a57717
+    image: ghcr.io/advplyr/audiobookshelf:2.20.0
     container_name: audiobookshelf
     restart: unless-stopped
     ports:
