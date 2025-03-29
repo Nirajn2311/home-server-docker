@@ -1,7 +1,7 @@
 version: "3"
 services:
   plex-media-healthcheck:
-    image: node:22-alpine
+    image: node:22-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944
     container_name: plex-media-healthcheck
     volumes:
       - plex-media:/data:ro
@@ -14,7 +14,7 @@ services:
       start_period: 15s
 
   plex:
-    image: plexinc/pms-docker:1.41.5.9522-a96edc606
+    image: plexinc/pms-docker:1.41.5.9522-a96edc606@sha256:9462ed05adb6dd166a15d0aa7a0224e4593ef8a195018feec4a812fd32704d46
     container_name: plex
     restart: unless-stopped
     env_file: .env
