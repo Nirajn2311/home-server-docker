@@ -15,7 +15,7 @@ services:
       - com.centurylinklabs.watchtower.enable=true
 
   nginx_recipes:
-    image: nginx:1.25.4-alpine@sha256:31bad00311cb5eeb8a6648beadcf67277a175da89989f14727420a80e2e76742
+    image: nginx:1.27.5-alpine@sha256:971ed5966804f3e938f75b3cb01b0281c41ed1bfb47cda3d31b4bc5b00c44729
     restart: unless-stopped
     env_file:
       - ./.env
