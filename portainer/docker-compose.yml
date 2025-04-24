@@ -1,7 +1,7 @@
 version: "3"
 services:
   portainer-ce:
-    image: portainer/portainer-ce:2.27.3@sha256:7f10a26bfdda3fc58295ea09b860117ecd86a642d66fb94ce1f27a4c221d4649
+    image: portainer/portainer-ce:2.29.2@sha256:eaa1a7d27c81a0a4d52974378bc7113c3d389c7a4c5586c4e0ad7bc68e96e99f
     container_name: portainer
     restart: unless-stopped
     ports:
