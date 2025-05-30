@@ -3,11 +3,12 @@ services:
   plex-media-healthcheck:
     image: node:22-alpine@sha256:9bef0ef1e268f60627da9ba7d7605e8831d5b56ad07487d24d1aa386336d1944
     container_name: plex-media-healthcheck
+    env_file: .env
     volumes:
-      - plex-media:/data:ro
-    command: sh -c 'until [ "$(ls -A /data)" ]; do echo "Waiting for volume to be ready"; sleep 2; done; echo "Volume ready for use"; sleep infinity;'
+      - ${PLEX_MEDIA_DIR:?media_dir_missing}:/data:ro
+    command: sh -c 'until [[ $(ls -A /data | wc -l) -gt 0 ]]; do echo "Waiting for volume to be ready"; sleep 2; done; echo "Volume ready for use"; sleep infinity;'
     healthcheck:
-      test: ls /data || exit 1
+      test: "[[ $(ls -A /data | wc -l) -gt 0 ]]"
       interval: 1m
       timeout: 15s
       retries: 3
@@ -27,19 +28,9 @@ services:
     volumes:
       - ./config:/config
       - ./transcode:/transcode
-      - plex-media:/data/media:ro
+      - ${PLEX_MEDIA_DIR:?media_dir_missing}:/data/media:ro
     depends_on:
       plex-media-healthcheck:
         condition: service_healthy
     labels:
       - com.centurylinklabs.watchtower.enable=true
-
-volumes:
-  plex-media:
-    driver: rclone
-    driver_opts:
-      remote: ${RCLONE_REMOTE}
-      read_only: "true"
-      allow_other: "true"
-      dir_cache_time: "1m"
-      poll_interval: 0
