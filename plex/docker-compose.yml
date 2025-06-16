@@ -36,7 +36,7 @@ services:
       - com.centurylinklabs.watchtower.enable=true
 
   tautulli:
-    image: ghcr.io/tautulli/tautulli:v2.15.2
+    image: ghcr.io/tautulli/tautulli:v2.15.2@sha256:0003dd1f2c6d8cd1ce3013ff94f62b17530b3573439de6b52aefa3a10e724f9e
     container_name: tautulli
     restart: unless-stopped
     environment:
