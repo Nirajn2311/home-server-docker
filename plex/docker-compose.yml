@@ -40,5 +40,6 @@ services:
       - "8181:8181"
     volumes:
       - ./tautulli-config:/config
+      - ./config:/plex-config:ro
     depends_on:
       - plex
