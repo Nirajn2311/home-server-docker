@@ -1,6 +1,9 @@
 # Ignore everything
 *
 
+# Ignore NextCloud backup
+nextcloud/backups
+
 # whitelist directories otherwise below rules won't work when files are in subdirs
 !*/
 
