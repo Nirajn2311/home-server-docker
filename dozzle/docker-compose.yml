@@ -1,7 +1,7 @@
 version: "3"
 services:
   dozzle:
-    image: amir20/dozzle:latest@sha256:36707d180462e764eac81aac793f8352296048404fa4dea1f280fa3cefa7fce3
+    image: amir20/dozzle:latest@sha256:decddbdb4eb80617da9c6894e082920cf356baee76476ec144ce5a2e3bf8c164
     container_name: dozzle
     environment:
       - DOZZLE_AUTH_PROVIDER=simple
