@@ -1,8 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "docker:enableMajor", "docker:pinDigests"],
-  "ignorePaths": ["nextcloud/"],
   "packageRules": [
+    {
+      "matchPackageNames": "ghcr.io/nextcloud-releases/all-in-one",
+      "enabled": false
+    },
     {
       "matchPackageNames": ["linuxserver/**"],
       "allowedVersions": "<14"
