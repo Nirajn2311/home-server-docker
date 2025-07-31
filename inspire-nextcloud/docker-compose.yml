@@ -1,6 +1,6 @@
 services:
   collabora:
-    image: collabora/code:24.04.13.3.1@sha256:c918662331cbd13b28ef2f7d2d7d91055948adfcadaff21c687cbbbe08258729
+    image: collabora/code:25.04.4.2.1@sha256:05df5e537bf7a72f31c6acb72a37dcf74c77893af5a285c0746c1cc590165fb7
     # image: collabora/code:25.04.4.1.1
     container_name: collabora
     ports:
