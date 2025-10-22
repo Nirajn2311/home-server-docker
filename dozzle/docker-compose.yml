@@ -1,14 +1,45 @@
 version: "3"
 services:
+  dozzle-agent-niraj:
+    image: amir20/dozzle:v8.14.5
+    command: agent
+    environment:
+      - DOZZLE_HOSTNAME=niraj
+    healthcheck:
+      test: ["CMD", "/dozzle", "healthcheck"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+      start_interval: 5s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  dozzle-agent-nandish:
+    image: amir20/dozzle:v8.14.5
+    command: agent
+    environment:
+      - DOZZLE_HOSTNAME=nandish
+    healthcheck:
+      test: ["CMD", "/dozzle", "healthcheck"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+      start_interval: 5s
+    volumes:
+      - /run/user/1001/docker.sock:/var/run/docker.sock:ro
+
   dozzle:
-    image: amir20/dozzle:latest@sha256:b6791e8893adce2ea73512b618e0bca2370e77f1ef32848bf6478663633cc31d
+    image: amir20/dozzle:v8.14.5
     container_name: dozzle
     environment:
       - DOZZLE_AUTH_PROVIDER=simple
+      - DOZZLE_REMOTE_AGENT=dozzle-agent-niraj:7007,dozzle-agent-nandish:7007
     ports:
       - "14000:8080"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
       - ./config:/data
+    depends_on:
+      - dozzle-agent-niraj
+      - dozzle-agent-nandish
     labels:
       - com.centurylinklabs.watchtower.enable=true
