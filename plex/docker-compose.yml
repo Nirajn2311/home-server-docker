@@ -15,7 +15,7 @@ services:
       start_period: 15s
 
   plex:
-    image: plexinc/pms-docker:1.41.5.9522-a96edc606@sha256:9462ed05adb6dd166a15d0aa7a0224e4593ef8a195018feec4a812fd32704d46
+    image: plexinc/pms-docker:1.42.2.10156-f737b826c@sha256:9c03c26b9479ba9a09935f3367459bfdc8d21545f42ed2a13258983c5be1b252
     container_name: plex
     restart: unless-stopped
     env_file: .env
