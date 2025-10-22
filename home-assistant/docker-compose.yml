@@ -2,7 +2,7 @@
 version: "3"
 services:
   home-assistant:
-    image: ghcr.io/home-assistant/home-assistant:stable@sha256:e5bf3905955081dc4aae3b3980870c43ce6d8ffb880b5447addb3b3ba00f7bc0
+    image: ghcr.io/home-assistant/home-assistant:stable@sha256:22376034bddcb952cfd3f3b4101b932b5a561f050acccd16ef879e88c7ff8233
     container_name: home-assistant
     restart: unless-stopped
     env_file: .env
