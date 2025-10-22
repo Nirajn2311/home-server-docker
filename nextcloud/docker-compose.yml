@@ -9,6 +9,7 @@ services:
       - APACHE_IP_BINDING=127.0.0.1
       - NEXTCLOUD_ADDITIONAL_APKS=imagemagick ffmpeg
       - NEXTCLOUD_ADDITIONAL_PHP_EXTENSIONS=imagick
+      - NEXTCLOUD_KEEP_DISABLED_APPS=true
     ports:
       - "12000:8080"
     volumes:
