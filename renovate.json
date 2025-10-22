@@ -11,6 +11,10 @@
       "allowedVersions": "<14"
     },
     {
+      "matchPackageNames": ["plexinc/pms-docker"],
+      "versioning": "loose"
+    },
+    {
       "matchFileNames": ["dozzle/**", "home-assistant/**"],
       "automerge": true
     }
