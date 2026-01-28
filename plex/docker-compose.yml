@@ -1,7 +1,7 @@
 version: "3"
 services:
   plex-media-healthcheck:
-    image: node:22-alpine@sha256:bd26af08779f746650d95a2e4d653b0fd3c8030c44284b6b98d701c9b5eb66b9
+    image: node:24-alpine@sha256:cd6fb7efa6490f039f3471a189214d5f548c11df1ff9e5b181aa49e22c14383e
     container_name: plex-media-healthcheck
     env_file: .env
     volumes:
