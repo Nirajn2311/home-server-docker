@@ -1,6 +1,6 @@
 services:
   gluetun:
-    image: qmcgaw/gluetun:v3.41.1
+    image: qmcgaw/gluetun:v3.41.1@sha256:1a5bf4b4820a879cdf8d93d7ef0d2d963af56670c9ebff8981860b6804ebc8ab
     container_name: gluetun
     restart: unless-stopped
     env_file: .env
@@ -30,7 +30,7 @@ services:
       - ${DATA_DIR}:/data/source
 
   qbit-ui:
-    image: ghcr.io/autobrr/qui:v1.15.0
+    image: ghcr.io/autobrr/qui:v1.15.0@sha256:da33f8c850f7d6f1bfaee26b9553b21411e872639d54193906fa2cec51af1d0f
     container_name: qbit-ui
     restart: unless-stopped
     ports:
@@ -41,7 +41,7 @@ services:
       - qbittorrent
 
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:v3.4.6
+    image: ghcr.io/flaresolverr/flaresolverr:v3.4.6@sha256:7962759d99d7e125e108e0f5e7f3cdbcd36161776d058d1d9b7153b92ef1af9e
     container_name: flaresolverr
     restart: unless-stopped
     env_file: .env
@@ -93,7 +93,7 @@ services:
       - prowlarr
 
   bazarr:
-    image: ghcr.io/hotio/bazarr:release-1.5.5
+    image: ghcr.io/hotio/bazarr:release-1.5.5@sha256:7381c8a3f3de2361a7ea47492093b6680e4d38ef7b0d21748f2ade481eaea378
     container_name: bazarr
     restart: unless-stopped
     logging:
