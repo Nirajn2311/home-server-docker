@@ -16,7 +16,7 @@ services:
       - /dev/net/tun:/dev/net/tun
 
   qbittorrent:
-    image: linuxserver/qbittorrent:5.1.4@sha256:1fc78c81850d658f17701bfa9d8de58ccc12ff27d36a9a176c6299e55aaf4b4e
+    image: linuxserver/qbittorrent:5.1.4@sha256:c9990949e968e99333f47f49da7d16e81ba6e1469c8c46807a65b984c9e8b6ff
     container_name: qbittorrent
     network_mode: service:gluetun
     restart: unless-stopped
