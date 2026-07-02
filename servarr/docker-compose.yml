@@ -48,7 +48,7 @@ services:
     network_mode: service:gluetun
 
   prowlarr:
-    image: ghcr.io/hotio/prowlarr:release-2.4.0.5397@sha256:dbf998c023c0cc438096fcef9df6606a92e16577efd05da05f7145cc28c4850b
+    image: ghcr.io/hotio/prowlarr:release-2.4.0.5397@sha256:ef9bd520de4f269993fabc3dbeb74eb192bc773d5d7db1d564730d5475ffd47a
     container_name: prowlarr
     restart: unless-stopped
     env_file: .env
