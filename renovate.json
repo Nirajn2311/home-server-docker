@@ -15,8 +15,10 @@
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)-[0-9a-f]+$"
     },
     {
-      "matchPackagePrefixes": ["ghcr.io/hotio/"],
-      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$"
+      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
+      "matchPackageNames": [
+        "ghcr.io/hotio/{/,}**"
+      ]
     },
     {
       "matchFileNames": ["dozzle/**", "home-assistant/**"],
