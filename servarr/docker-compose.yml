@@ -59,7 +59,7 @@ services:
       - flaresolverr
 
   radarr:
-    image: ghcr.io/hotio/radarr:release-6.3.0.10514@sha256:4b334f33ae74337668b7c8a4ce1ff6b3e1a8b1e298812c6113ee4ad7e19fbaee
+    image: ghcr.io/hotio/radarr:release-6.3.0.10514@sha256:205807cb42323ababefad2872e56ce175d87c1ab5dfa7ba7eaedc19d67545ed6
     container_name: radarr
     restart: unless-stopped
     env_file: .env
