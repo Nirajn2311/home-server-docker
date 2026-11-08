@@ -1,7 +1,7 @@
 version: "3"
 services:
   heimdall:
-    image: linuxserver/heimdall:2.8.1@sha256:83b97a1ba126b19d27f2e73522518f532c6bd71500cc5e3ae483a62ed6e4b268
+    image: linuxserver/heimdall:2.8.4@sha256:6abf244e7bfef9c9383d1a9292d602a65f71e5abfe741d65b14622a927da733c
     container_name: heimdall
     restart: always
     environment:
