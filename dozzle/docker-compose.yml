@@ -1,7 +1,7 @@
 version: "3"
 services:
   dozzle-agent-niraj:
-    image: amir20/dozzle:v10.10.0@sha256:2875e3c1f31f2244ee99d6067b53852b30666b3e2fb293d179bc8be94b1da5eb
+    image: amir20/dozzle:v11.4.2@sha256:08cd5230e21e364241f3dcf26191f293166f7835654eb7e41168b9c685f0947b
     command: agent
     environment:
       - DOZZLE_HOSTNAME=niraj
@@ -15,7 +15,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   dozzle-agent-nandish:
-    image: amir20/dozzle:v10.10.0@sha256:2875e3c1f31f2244ee99d6067b53852b30666b3e2fb293d179bc8be94b1da5eb
+    image: amir20/dozzle:v11.4.2@sha256:08cd5230e21e364241f3dcf26191f293166f7835654eb7e41168b9c685f0947b
     command: agent
     environment:
       - DOZZLE_HOSTNAME=nandish
@@ -29,7 +29,7 @@ services:
       - /run/user/1001/docker.sock:/var/run/docker.sock:ro
 
   dozzle:
-    image: amir20/dozzle:v10.10.0@sha256:2875e3c1f31f2244ee99d6067b53852b30666b3e2fb293d179bc8be94b1da5eb
+    image: amir20/dozzle:v11.4.2@sha256:08cd5230e21e364241f3dcf26191f293166f7835654eb7e41168b9c685f0947b
     container_name: dozzle
     environment:
       - DOZZLE_AUTH_PROVIDER=simple
